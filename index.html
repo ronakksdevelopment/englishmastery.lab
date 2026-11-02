@@ -60,7 +60,11 @@
 
 *{box-sizing:border-box}
 svg.svg-inline--fa{height:1em;width:1.125em;vertical-align:-0.125em}
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+  max-width:100%;
+}
 body{
   background:var(--cream);
   color:var(--navy);
@@ -69,6 +73,18 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+  max-width:100%;
+  position:relative;
+}
+/* Mobile-safe guards: nothing is allowed to force horizontal scroll */
+img,video,svg,iframe,table,canvas{max-width:100%;height:auto}
+table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+pre,code{white-space:pre-wrap;word-break:break-word;max-width:100%}
+input,select,textarea,button{max-width:100%}
+.hero-figure,.hero-figure-inner{max-width:100%}
+@media (max-width:860px){
+  .hero-figure{transform:none}
+  .hero-figure-inner{transform:none}
 }
 img{max-width:100%;display:block}
 h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;margin:0;text-wrap:balance}
